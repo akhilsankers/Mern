@@ -6,6 +6,7 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
 
+
 function ViewApplicants({ jobId }) {
   const [applicants, setApplicants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -91,7 +92,7 @@ function ViewApplicants({ jobId }) {
 
               {app.resumeUrl && (
                 <a
-                  href={`http://localhost:3000${app.resumeUrl}`}
+                  href={`https://mern-backend-tqtd.onrender.com/${app.resumeUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline-primary btn-sm w-100 mb-3"
