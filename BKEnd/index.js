@@ -21,7 +21,7 @@ app.use(cookieParser());
 // Enable CORS for frontend (important for cookies)
 app.use(
   cors({
-    origin: 'http://localhost:5173', //  your frontend URL
+    origin: 'https://jobfair-fend.netlify.app/', //  your frontend URL
     credentials: true, // 👈 allow cookies to be sent
   })
 );
