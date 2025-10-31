@@ -58,12 +58,13 @@ const login = async (req, res) => {
     );
 
     // Set token as HTTP-only cookie
-    res.cookie('token', token, {
-      httpOnly: true, // cannot be accessed by JS
-      secure: process.env.NODE_ENV === 'production', // true in production (HTTPS)
-      sameSite: 'strict', // CSRF protection
+      res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // true on Render
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 5 * 24 * 60 * 60 * 1000, // 5 days
     });
+
 
     const userData = user.toObject();
     delete userData.password;
