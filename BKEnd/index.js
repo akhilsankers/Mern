@@ -13,18 +13,21 @@ const applicationRoutes = require('./Router/app');
 
 //  Database connection
 require('./connection/connect');
+// Enable CORS for frontend (important for cookies)
+app.use(cors({
+  origin: [
+    "http://localhost:5173",             // local dev
+    "https://jobfair-fend.netlify.app"   // deployed frontend
+  ],
+  credentials: true, // allows cookies to be sent
+}));
 
+app.set("trust proxy", 1);
 //  Middlewares
 app.use(express.json());
 app.use(cookieParser());
 
-// Enable CORS for frontend (important for cookies)
-app.use(
-  cors({
-    origin: 'https://jobfair-fend.netlify.app', //  your frontend URL
-    credentials: true, // 👈 allow cookies to be sent
-  })
-);
+
 
 // Test route
 app.get('/', (req, res) => {
