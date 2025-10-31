@@ -1,6 +1,6 @@
 const Job = require('../models/job');
 
-// Create Job (Employer only)
+// Create Job 
 const createJob = async (req, res) => {
   try {
     const { title, description, type, location, company, salaryRange, category } = req.body;
@@ -28,7 +28,7 @@ const createJob = async (req, res) => {
   }
 };
 
-// Update Job (only by the posting employer)
+// Update Job 
 const updateJob = async (req, res) => {
   try {
     const job = await Job.findById(req.params.id);
@@ -46,7 +46,7 @@ const updateJob = async (req, res) => {
   }
 };
 
-//  Delete Job (only by the posting employer)
+//  Delete Job 
 const deleteJob = async (req, res) => {
   try {
     const job = await Job.findById(req.params.id);
@@ -64,7 +64,7 @@ const deleteJob = async (req, res) => {
   }
 };
 
-//  Get All Jobs (with filters and pagination)
+//  Get All Jobs 
 const getJobs = async (req, res) => {
   try {
     const { q, type, location, category, page = 1, limit = 20 } = req.query;
@@ -101,7 +101,7 @@ const getJob = async (req, res) => {
   }
 };
 
-// Get Jobs Posted by Logged-in Employer
+// Get Jobs Posted by  Employer
 const getMyJobs = async (req, res) => {
   try {
     const jobs = await Job.find({ postedBy: req.user._id }).sort({ createdAt: -1 });
