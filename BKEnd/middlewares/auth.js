@@ -25,7 +25,7 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-// ✅ Role-based middleware (no change needed)
+//  Role-based middleware (no change needed)
 const requireRole = (roles = []) => {
   return (req, res, next) => {
     if (!req.user) {
