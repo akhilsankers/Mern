@@ -92,7 +92,7 @@ function ViewApplicants({ jobId }) {
 
               {app.resumeUrl && (
                 <a
-                  href={`https://mern-backend-tqtd.onrender.com/${app.resumeUrl}`}
+                  href={`https://mern-backend-tqtd.onrender.com${app.resumeUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline-primary btn-sm w-100 mb-3"
