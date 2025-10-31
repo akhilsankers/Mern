@@ -73,7 +73,7 @@ const getApplicationsByJob = async (req, res) => {
 // Job Seeker: Get My Applications
 const getMyApplications = async (req, res) => {
   try {
-    // ✅ FIX: populate the correct field name ('job', not 'jobId')
+    //  FIX: populate the correct field name ('job', not 'jobId')
     const applications = await Application.find({ applicant: req.user._id })
       .populate('job', 'title company location');
 
