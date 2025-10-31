@@ -95,10 +95,10 @@ const getProfile = async (req, res) => {
 const logout = (req, res) => {
   try {
     // Clear the token cookie
-    res.clearCookie('token', {
+    res.clearCookie("token", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production', // true if using HTTPS
-      sameSite: 'strict', // protects from CSRF
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     });
 
     return res.status(200).json({ message: 'Logged out successfully' });
